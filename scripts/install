@@ -145,6 +145,7 @@ fi
 ynh_script_progression --message="Building Kimai2..."
 
 ynh_install_composer --phpversion="${YNH_PHP_VERSION}" --workdir="$final_path" --install_args="--optimize-autoloader"
+ynh_composer_exec --phpversion="${YNH_PHP_VERSION}" --workdir="$final_path" --commands="update symfony/flex --no-plugins --no-scripts"
 ynh_composer_exec --phpversion="${YNH_PHP_VERSION}" --workdir="$final_path" --commands="require laminas/laminas-ldap"
 
 pushd "$final_path"
